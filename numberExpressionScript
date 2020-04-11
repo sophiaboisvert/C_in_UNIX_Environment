@@ -1,0 +1,18 @@
+#!/bin/bash
+echo -n "Enter the first number: "
+read value1
+echo -n "Enter the second number: "
+read value2
+
+echo "The value of x+y is $(( $value1+$value2 ))"
+
+echo "The value of x-y is $(( $value1-$value2 ))"
+
+echo "The value of x*y is $(( $value1*$value2 ))"
+
+if [ "$value2" -eq 0 ]
+	then
+		echo Cannot divide by zerp
+else
+	echo "The value of x/y is $(( $value1/$value2 ))"
+fi

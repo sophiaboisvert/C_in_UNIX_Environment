@@ -1,0 +1,42 @@
+#! /user/bin/python
+
+import random
+import sys
+import os
+
+#random integer function
+def randomGen(min, max):
+	return random.randint(min,max)
+
+#get username from player
+username = raw_input("Enter your username: ")
+
+#generate random number
+num = randomGen(-100,100)
+
+score = 1
+limit = 7
+print("You can guess 7 times")
+
+#play game
+while(score <= limit):
+	guess = input("Enter your guess: ")
+	if guess > num:
+		print("High guess")
+	elif guess == num:
+		print("Congrats that is correct!")
+		break
+	else:
+		print("Low guess")
+	if score == limit:
+		print("You are out of guesses")
+		break
+	score += 1
+
+#print out score
+print("Your score was: ")
+print(score)
+
+#write to report file
+reportfile = open("gamereport.txt", "a")
+reportfile.write(username + " " +  str(score) + "\n")
